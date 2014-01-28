@@ -21,16 +21,15 @@ The image filename be named like this *(the resolution is free, but must be doub
 <script>
 $(function(){
 	// use a BODY
-	$.backgroundStretch2x([
-		'images/image-1-2x.jpg',
-		'images/image-2-2x.jpg',
-		'images/image-3-2x.jpg']);
+	$.backgroundStretch2x(
+		['images/image-1-2x.jpg','images/image-2-2x.jpg','images/image-3-2x.jpg']
+		);
 	// or
 	$('body').backgroundStretch2x( ['images/image-1-2x.jpg'] );
 	
 	// use a DIV
 	$('#my-div').backgroundStretch2x(
-		['images/image-1-2x.jpg', 'images/image-2-2x.jpg', 'images/image-3-2x.jpg'], {
+		['images/image-1-2x.jpg','images/image-2-2x.jpg','images/image-3-2x.jpg'], {
 			// options
 			wait: 6000,
 			fade: 1000,
@@ -48,8 +47,8 @@ Options
 | `wait` | Waiting time between 2 images. | Integer | 5000 |
 | `fade` | Time of fade. | Integer | 2000 |
 | `shuffle` | Shuffle images. | Boolean | false |
-| `centerX` | Percentage of centering image in X *(0 to 1)*. | Float | 0.5 |
-| `centerY` | Percentage of centering image in Y *(0 to 1)*. | Float | 0.5 |
+| `centerX` | Percentage of centering image in X *(0.0 to 1.0)*. | Float | 0.5 |
+| `centerY` | Percentage of centering image in Y *(0.0 to 1.0)*. | Float | 0.5 |
 | `proportional` | Resize images proportionally. | Boolean | true |
 | `onLoad` | All images are loaded. | Function | null |
 | `onChange` | The fade will start. | Function | null |
