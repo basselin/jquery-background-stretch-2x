@@ -4,12 +4,8 @@
  * MIT Licence
  */
 
-
-
 ;(function($, window, undefined) {
 	'use strict';
-	
-	
 	
 	/**
 	 * Background stretch 2x
@@ -142,7 +138,6 @@
 					}
 				});
 				if(loadedCount >= images2x.length) {
-					// Fade
 					if('function' === typeof options.onLoad) { options.onLoad(); }
 					setInterval(imagesTransition, (options.wait + options.fade));
 				}
@@ -172,8 +167,4 @@
 		$('body').backgroundStretch2x(images2x, options);
 	};
 	
-	
-	
 })(jQuery, window);
-
-
