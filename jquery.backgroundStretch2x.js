@@ -3,36 +3,36 @@
  * (c) 2014, Benoit Asselin contact(at)ab-d.fr
  * MIT Licence
  */
-
+ 
 ;(function($, window, undefined) {
 	'use strict';
 	
 	/**
-	 * Background stretch 2x
+	 * background stretch 2x
 	 * @param {Array} images2x
 	 * @param {Object} options
+	 * @returns {jQuery}
 	 */
 	$.fn.backgroundStretch2x = function(images2x, options) {
 		options = $.extend({
 			// defaults
-			wait: 5000, // ms
-			fade: 2000, // ms
+			wait: 5000, // Number ms
+			fade: 2000, // Number ms
 			shuffle: false, // Boolean
-			centerX: 0.5, // Number [0..1]
-			centerY: 0.5, // Number [0..1]
+			centerX: 0.5, // Number [0.0..1.0]
+			centerY: 0.5, // Number [0.0..1.0]
 			proportional: true, // Boolean
 			onLoad: null, // Function
 			onChange: null, // Function
 			onComplete: null, // Function
 			styles: { left:0, top:0, overflow:'hidden', zIndex:-32000 }, // Object
-			template: '<div class="background-stretch-2x"></div>' // html
+			template: '<div class="background-stretch-2x"></div>' // String html
 			}, options);
 		
 		if(!images2x || !images2x.length) { return this; }
 		var $win = $(window);
 		
 		return this.each(function() {
-			// Prepare
 			var isBody = ('body' === this.tagName.toLowerCase());
 			var $this = $(this);
 			var $background = $($.parseHTML(options.template))
@@ -44,7 +44,7 @@
 			}
 			var images1x = [];
 			for(var i = 0; i < images2x.length; i++) {
-				images1x[i] = images2x[i].replace('-2x.','.');
+				images1x[i] = images2x[i].replace('-2x.', '.');
 			}
 			
 			function windowResize() {
@@ -93,7 +93,8 @@
 					.data('loaded', false)
 					.load(function() {
 						var $i = $(this);
-						$i	.css({position:'absolute'})
+						$i
+							.css({position:'absolute'})
 							.data('loaded', true)
 							.data('initWidth', $i.width())
 							.data('initHeight', $i.height())
@@ -154,7 +155,7 @@
 					});
 			}
 			
-			// Start
+			// Events and start SD/HD
 			$win.on('resize orientationchange', windowResize);
 			buildImage(images1x[0], function() {
 				buildImage(images2x[0], prepareImages);
