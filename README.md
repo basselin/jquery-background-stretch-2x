@@ -44,16 +44,16 @@ Options
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| `wait` | Waiting time in milliseconds between 2 images. | Integer *ms* | 5000 |
-| `fade` | Time of fade in milliseconds. | Integer *ms* | 2000 |
-| `color` | Display background color between the images. You can use all the colors used in CSS. Eg:`black`, `#000`, `#fff`... | String | '' |
-| `shuffle` | Shuffle images before starting. | Boolean | false |
-| `centerX` | Centering the image in X axis with percentage.  | Float *0.0 to 1.0* | 0.5 |
-| `centerY` | Centering the image in Y axis with percentage. | Float *0.0 to 1.0* | 0.5 |
-| `proportional` | Resizing images proportionally. | Boolean | true |
-| `onLoad` | All images are loaded. | Function | null |
-| `onChange` | The fade will start. | Function | null |
-| `onComplete` | The fade is completed. | Function | null |
+| `wait` | Waiting time in milliseconds between 2 images. | Integer *ms* | `5000` |
+| `fade` | Time of fade in milliseconds. | Integer *ms* | `2000` |
+| `color` | Display background color between the images. You can use all the colors used in css. Eg:`black`, `#000`, `#fff`... | String | `''` |
+| `shuffle` | Shuffle images before starting. | Boolean | `false` |
+| `centerX` | Centering the image in X axis with percentage.  | Float `0.0` *to* `1.0` | `0.5` |
+| `centerY` | Centering the image in Y axis with percentage. | Float `0.0` *to* `1.0` | `0.5` |
+| `proportional` | Resizing images proportionally. | Boolean | `true` |
+| `onLoad` | All images are loaded. | Function | `null` |
+| `onChange` | The fade will start. | Function | `null` |
+| `onComplete` | The fade is completed. | Function | `null` |
 | `styles` | DIV styles: `{ left:0, top:0, overflow:'hidden', zIndex:-32000 }` | Object | `{ .. }` |
 | `template` | HTML: `<div class="background-stretch-2x"></div>` | String *html* | `< .. >` |
 
