@@ -1,11 +1,11 @@
 $.backgroundStretch2x()
 =======================
-This jQuery plugin can resize images according the page size or its container.
+This jQuery plugin can resize images according to the page size or its container.
 
 The plugin works in 4 steps :
-* It loads the image in low resolution *( img-1.jpg )*,
+* It loads the first image in low resolution *( img-1.jpg )*,
 * Then, this same image in high resolution *( img-1-2x.jpg )*,
-* And, the other images are loaded in high resolution *( img-XX-2x.jpg )*,
+* Then, the other images are loaded in high resolution *( img-XX-2x.jpg )*,
 * Finally, the fade starts...
 
 Installation
@@ -49,7 +49,7 @@ Options
 | `shuffle` | Shuffle images. | Boolean | false |
 | `centerX` | Percentage of centering image in X *(0.0 to 1.0)*. | Float | 0.5 |
 | `centerY` | Percentage of centering image in Y *(0.0 to 1.0)*. | Float | 0.5 |
-| `proportional` | Resize images proportionally. | Boolean | true |
+| `proportional` | Resizing images proportionally. | Boolean | true |
 | `onLoad` | All images are loaded. | Function | null |
 | `onChange` | The fade will start. | Function | null |
 | `onComplete` | The fade is completed. | Function | null |
