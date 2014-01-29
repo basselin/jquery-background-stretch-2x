@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>$.backgroundStretch2x() - Demo #1</title>
+	<title>$.backgroundStretch2x() - Demo #2</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css" />
@@ -10,11 +10,12 @@
 	h1 { font-size: 1.5em; }
 	h2 { font-size: 1.2em; }
 	#container {
+		position: relative;
 		width: 80%;
 		margin: 0em auto;
 		padding: 0.1em 1em;
 		color: #000;
-		background: rgba(255, 255, 255, 0.4);
+		background: rgba(255, 255, 255, 0.2);
 		-webkit-box-shadow: 0em 0em 1em rgba(255, 255, 255, 0.5);
 		   -moz-box-shadow: 0em 0em 1em rgba(255, 255, 255, 0.5);
 			box-shadow: 0em 0em 1em rgba(255, 255, 255, 0.5);
@@ -30,7 +31,12 @@
 	<script src="jquery.backgroundStretch2x.min.js"></script>
 	<script>
 	$(function(){
-		$.backgroundStretch2x( ['images/image-1-2x.jpg', 'images/image-2-2x.jpg', 'images/image-3-2x.jpg'] );
+		$('#container')
+			.backgroundStretch2x( ['images/image-1-2x.jpg', 'images/image-2-2x.jpg', 'images/image-3-2x.jpg'], {
+				wait: 2000,
+				fade: 1000,
+				centerY: 0
+			});
 	});
 	</script>
 	
@@ -39,7 +45,7 @@
 	<div id="container">
 		<div class="content">
 			<h1>$.backgroundStretch2x()</h1>
-			<h2>Demo #1</h2>
+			<h2>Demo #2</h2>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>

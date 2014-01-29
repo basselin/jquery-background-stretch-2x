@@ -1,5 +1,5 @@
 /*!
- * jquery.backgroundStretch2x.js v1.0.0
+ * jquery.backgroundStretch2x.js v1.1.0
  * (c) 2014, Benoit Asselin contact(at)ab-d.fr
  * MIT Licence
  */
@@ -18,6 +18,7 @@
 			// defaults
 			wait: 5000, // Number ms
 			fade: 2000, // Number ms
+			color: '', // String
 			shuffle: false, // Boolean
 			centerX: 0.5, // Number [0.0..1.0]
 			centerY: 0.5, // Number [0.0..1.0]
@@ -33,12 +34,16 @@
 		var $win = $(window);
 		
 		return this.each(function() {
-			var isBody = ('body' === this.tagName.toLowerCase());
 			var $this = $(this);
+			var isBody = ('body' === this.tagName.toLowerCase());
+			var withBgColor = options.color;
 			var $background = $($.parseHTML(options.template))
 						.css(options.styles)
 						.css({position:(isBody ? 'fixed' : 'absolute')})
 						.appendTo($this);
+			if(withBgColor) {
+				$background.css({ backgroundColor:withBgColor });
+			}
 			if(options.shuffle) {
 				images2x.sort(function(){ return (Math.round(Math.random()) - 0.5); });
 			}
@@ -146,13 +151,32 @@
 			
 			function imagesTransition() {
 				if('function' === typeof options.onChange) { options.onChange(); }
-				$background.children().last()
-					.animate({opacity:0}, options.fade, function() {
-						$(this)
-							.prependTo($background)
-							.css({opacity:''});
-						if('function' === typeof options.onComplete) { options.onComplete(); }
-					});
+				if(!withBgColor) {
+					$background.children(':last')
+						// fade 1/1
+						.animate({opacity:0}, options.fade, function() {
+							var $i = $(this).prependTo($background);
+							$i.css({opacity:''});
+							if('function' === typeof options.onComplete) { options.onComplete(); }
+						});
+				} else {
+					$background
+						.children(':not(:last)').css({visibility:'hidden'}).end()
+						.children(':last')
+							// fade 1/2
+							.animate({opacity:0}, (options.fade / 2), function() {
+								var $i = $(this).prependTo($background);
+								$i.css({visibility:'hidden', opacity:''});
+								// fade 2/2
+								$background.children(':last')
+									.css({opacity:0, visibility:'visible'})
+									.animate({opacity:1}, (options.fade / 2), function() {
+										$(this).css({opacity:''});
+										if('function' === typeof options.onComplete) { options.onComplete(); }
+									});
+								
+							});
+				}
 			}
 			
 			// Events and start SD/HD

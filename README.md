@@ -46,6 +46,7 @@ Options
 |------|-------------|------|---------|
 | `wait` | Waiting time in milliseconds between 2 images. | Integer *ms* | 5000 |
 | `fade` | Time of fade in milliseconds. | Integer *ms* | 2000 |
+| `color` | Display background color between the images. You can use all the colors used in CSS. Eg:`black`, `#000`, `#fff`... | String | '' |
 | `shuffle` | Shuffle images before starting. | Boolean | false |
 | `centerX` | Centering the image in X axis with percentage.  | Float *0.0 to 1.0* | 0.5 |
 | `centerY` | Centering the image in Y axis with percentage. | Float *0.0 to 1.0* | 0.5 |
