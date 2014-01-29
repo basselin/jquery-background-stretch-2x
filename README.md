@@ -1,11 +1,11 @@
 $.backgroundStretch2x()
 =======================
-This jQuery plugin can resize images according to the page size or its container.
+backgroundStretch2x is a lite jQuery plugin that adds images in the background dynamically. The images are resized according to the window size or its element container. This plugin is optimized to download images in low resolution then in high resolution for a better render with retina display (device pixel ratio: 2).
 
 The plugin works in 4 steps :
-* It loads the first image in low resolution *( img-1.jpg )*,
-* Then, this same image in high resolution *( img-1-2x.jpg )*,
-* Then, the other images are loaded in high resolution *( img-XX-2x.jpg )*,
+* It loads the first image in low resolution *( img-1.jpg )*
+* Then, this same image in high resolution *( img-1-2x.jpg )*
+* Then, the other images are loaded in high resolution *( img-XX-2x.jpg )*
 * Finally, the fade starts...
 
 Installation
@@ -44,15 +44,15 @@ Options
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| `wait` | Waiting time between 2 images. | Integer | 5000 |
-| `fade` | Time of fade. | Integer | 2000 |
-| `shuffle` | Shuffle images. | Boolean | false |
-| `centerX` | Percentage of centering image in X *(0.0 to 1.0)*. | Float | 0.5 |
-| `centerY` | Percentage of centering image in Y *(0.0 to 1.0)*. | Float | 0.5 |
+| `wait` | Waiting time in milliseconds between 2 images. | Integer *ms* | 5000 |
+| `fade` | Time of fade in milliseconds. | Integer *ms* | 2000 |
+| `shuffle` | Shuffle images before starting. | Boolean | false |
+| `centerX` | Centering the image in X axis with percentage.  | Float *0.0 to 1.0* | 0.5 |
+| `centerY` | Centering the image in Y axis with percentage. | Float *0.0 to 1.0* | 0.5 |
 | `proportional` | Resizing images proportionally. | Boolean | true |
 | `onLoad` | All images are loaded. | Function | null |
 | `onChange` | The fade will start. | Function | null |
 | `onComplete` | The fade is completed. | Function | null |
 | `styles` | DIV styles: `{ left:0, top:0, overflow:'hidden', zIndex:-32000 }` | Object | `{ .. }` |
-| `template` | HTML: `<div class="background-stretch-2x"></div>` | String | `< .. >` |
+| `template` | HTML: `<div class="background-stretch-2x"></div>` | String *html* | `< .. >` |
 
